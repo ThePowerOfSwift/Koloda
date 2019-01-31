@@ -64,6 +64,7 @@ public protocol KolodaViewDelegate: class {
     func koloda(_ koloda: KolodaView, shouldDragCardAt index: Int ) -> Bool
     func kolodaPanBegan(_ koloda: KolodaView, card: DraggableCardView)
     func kolodaPanFinished(_ koloda: KolodaView, card: DraggableCardView)
+    func kolodaDidChangeCurrentCardIndex(from oldValue: Int, to newValue: Int)
     
 }
 
@@ -115,7 +116,12 @@ open class KolodaView: UIView, DraggableCardDelegate {
     
     public var isLoop = false
     
-    private(set) public var currentCardIndex = 0
+    private(set) public var currentCardIndex = 0 {
+        didSet {
+            delegate?.kolodaDidChangeCurrentCardIndex(from: oldValue, to: currentCardIndex)
+        }
+    }
+    
     private(set) public var countOfCards = 0
     
     public weak var dataSource: KolodaViewDataSource? {
@@ -633,6 +639,12 @@ open class KolodaView: UIView, DraggableCardDelegate {
                 frontCard.delegate = nil
             }
         }
+    }
+    
+    public func changeCurrentCardIndex(to index: Int) {
+        clear()
+        currentCardIndex = index
+        reloadData()
     }
     
     public func resetCurrentCardIndex() {
