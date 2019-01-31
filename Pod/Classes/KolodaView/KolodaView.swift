@@ -85,6 +85,7 @@ public extension KolodaViewDelegate {
     func koloda(_ koloda: KolodaView, shouldDragCardAt index: Int ) -> Bool { return true }
     func kolodaPanBegan(_ koloda: KolodaView, card: DraggableCardView) {}
     func kolodaPanFinished(_ koloda: KolodaView, card: DraggableCardView) {}
+    func kolodaDidChangeCurrentCardIndex(from oldValue: Int, to newValue: Int) {}
 }
 
 open class KolodaView: UIView, DraggableCardDelegate {
