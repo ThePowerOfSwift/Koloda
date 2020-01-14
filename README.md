@@ -1,4 +1,4 @@
-## Shaan's Fork of StreamingKit
+## Shaan's Fork of Koloda
 
 This is a 2019 fork of the [Koloda library by Yalantis](https://github.com/Yalantis/Koloda), which implements a card swipe view for iOS. The purpose of this fork is to add advanced features to the card handling API.
 
