@@ -1,1 +1,1 @@
-- Added function that switches the top card to any given index.
+- Added function that switches the top card to any given index. Necessary to enable backend control of the UI with more flexibility than single increments.
